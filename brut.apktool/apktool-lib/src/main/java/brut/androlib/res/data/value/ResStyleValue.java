@@ -54,8 +54,10 @@ public class ResStyleValue extends ResBagValue implements
             ResResSpec spec = mItems[i].m1.getReferent();
             String name = null;
             String value = null;
-
-            String resource = spec.getDefaultResource().getValue().toString();
+			String resource = null;
+			try{
+				resource = spec.getDefaultResource().getValue().toString();
+			}catch(Exception ex){continue;}
             // hacky-fix remove bad ReferenceVars
             if (resource.contains("ResReferenceValue@")) {
                 continue;

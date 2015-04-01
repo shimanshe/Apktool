@@ -34,6 +34,9 @@ public class ExtMXSerializer extends MXSerializer implements ExtXmlSerializer {
     @Override
     protected void writeAttributeValue(String value, Writer out)
             throws IOException {
+		if(value == null){
+			value = "";
+		}
         if (mIsDisabledAttrEscape) {
             out.write(value);
             return;

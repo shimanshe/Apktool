@@ -31,14 +31,18 @@ public class ResAttrDecoder {
         ResScalarValue resValue = mCurrentPackage.getValueFactory().factory(
                 type, value, rawValue);
 
-        String decoded = null;
-        if (attrResId != 0) {
-            ResAttr attr = (ResAttr) getCurrentPackage().getResTable()
-                    .getResSpec(attrResId).getDefaultResource().getValue();
-            decoded = attr.convertToResXmlFormat(resValue);
-        }
+		try{
+			String decoded = null;
+			if (attrResId != 0) {
+				ResAttr attr = (ResAttr) getCurrentPackage().getResTable()
+						.getResSpec(attrResId).getDefaultResource().getValue();
+				decoded = attr.convertToResXmlFormat(resValue);
+			}
 
-        return decoded != null ? decoded : resValue.encodeAsResXmlAttr();
+			return decoded != null ? decoded : resValue.encodeAsResXmlAttr();
+		}catch(Exception ex){
+			return "";
+		}
     }
 
     public String decodeManifestAttr(int attrResId)

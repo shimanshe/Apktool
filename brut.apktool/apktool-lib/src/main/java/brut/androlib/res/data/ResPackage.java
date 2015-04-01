@@ -56,7 +56,7 @@ public class ResPackage {
     public ResResSpec getResSpec(ResID resID) throws UndefinedResObject {
         ResResSpec spec = mResSpecs.get(resID);
         if (spec == null) {
-            throw new UndefinedResObject("resource spec: " + resID.toString());
+            //throw new UndefinedResObject("resource spec: " + resID.toString());
         }
         return spec;
     }

@@ -17,6 +17,8 @@ set APP_BASE_NAME=%~n0
 set APP_HOME=%DIRNAME%
 
 @rem Find java.exe
+set JAVA_HOME=C:\Program Files (x86)\Java\jdk1.8.0_20
+set path=%path%;D:\android\adt-bundle-windows-x86-20140624\sdk\build-tools\android-4.4
 if defined JAVA_HOME goto findJavaFromJavaHome
 
 set JAVA_EXE=java.exe
@@ -85,6 +87,7 @@ if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
 exit /b 1
 
 :mainEnd
+copy %APP_HOME%\brut.apktool\apktool-cli\build\libs\apktool-cli.jar %APP_HOME%\apktool.jar
 if "%OS%"=="Windows_NT" endlocal
 
 :omega
